@@ -26,4 +26,11 @@ class Action_model extends CI_Model
 
 		return $result = $query->result();
 	}
+
+	public function update_table_data($id, $data)
+	{
+		$this->db->where("id", $id);
+		$this->db->update("users", $data);
+		return TRUE;
+	}
 }

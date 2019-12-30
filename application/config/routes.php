@@ -61,3 +61,4 @@ $route['site/service/(:num)/(:any)'] = 'site/service/$1/$2';
 
 $route['site/insert_data'] = 'site/insert_data_into_table';
 $route['action/select-all'] = 'action/get_all_data';
+$route['action/update-data'] = 'action/update_data';
