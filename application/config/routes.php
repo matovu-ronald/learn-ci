@@ -65,3 +65,4 @@ $route['action/update-data'] = 'action/update_data';
 $route['action/all-users'] = 'action/get_users';
 $route['action/delete-user'] = 'action/delete_single_user';
 $route['action/salary-filter'] = 'action/condition';
+$route['action/messages'] = 'action/get_messages';

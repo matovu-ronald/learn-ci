@@ -97,4 +97,21 @@ class Action_model extends CI_Model
 		return $result = $query->result();
 
 	}
+
+	public function get_user_messages()
+	{
+		$this->db->select("user.*,message.message");
+		$this->db->from("users as user");
+		// $this->db->join("messages as message", "user.id = message.user_id");
+		// select user.*,message.message from users as user JOIN messages as message ON user.id = message.user_id
+		// $this->db->join("messages as message", "user.id = message.user_id", "left");
+		// select user.*,message.message from users as user LEFT JOIN messages as message ON user.id = message.user_id
+		// $this->db->join("messages as message", "user.id = message.user_id", "right");
+		// select user.*,message.message from users as user RIGHT JOIN messages as message ON user.id = message.user_id
+		$this->db->join("messages as message", "user.id = message.user_id", "inner");
+		// select user.*,message.message from users as user INNER JOIN messages as message ON user.id = message.user_id
+		$query = $this->db->get();
+		// select user.*,message.message from users as user LEFT JOIN messages as message ON user.id = message.user_id
+		return $result = $query->result();
+	}
 }
