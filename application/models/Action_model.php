@@ -2,7 +2,8 @@
 
 class Action_model extends CI_Model
 {
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->database();
 	}
@@ -53,5 +54,42 @@ class Action_model extends CI_Model
 		// return $this->db->delete("users");
 		// Delete from table users where id is 4
 		return $this->db->delete("users", ["id" => 3]);
+	}
+
+	public function get_where_condition_query()
+	{
+		$this->db->select("*");
+		$this->db->from("users");
+		$this->db->where("salary >=", 4500);
+		$query = $this->db->get();
+		$result = $query->result();
+		return $result;
+	}
+
+	public function get_and_condition()
+	{
+		$this->db->select("*");
+		$this->db->from("users");
+		// $this->db->where([
+		// 	'id' => 3,
+		// 	'email' => 'ritahnakibirige@gmail.com'
+		// ]);
+		$this->db->where('id', 3);
+		$this->db->or_where('email', 'ritahnakibirige@gmail.com1');
+		$query = $this->db->get();
+		$result = $query->result();
+		return $result;
+		// select * from users where id = 3 AND email = 'ritahnakibirige@gmail.com';
+		// select * from users where id = 3 OR email = 'ritahnakibirige@gmail.com';
+	}
+
+	public function get_where_in()
+	{
+		$this->db->select("*");
+		$this->db->from("users");
+		$this->db->where_in("salary", ["6000", "2500", "3000"]);
+		$query = $this->db->get();
+		return $result = $query->result();
+
 	}
 }
