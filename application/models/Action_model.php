@@ -87,7 +87,12 @@ class Action_model extends CI_Model
 	{
 		$this->db->select("*");
 		$this->db->from("users");
-		$this->db->where_in("salary", ["6000", "2500", "3000"]);
+		// $this->db->where_in("salary", ["6000", "2500", "3000"]);
+		// $this->db->like("email", "gmail.com"); // %gmail.com%
+		// $this->db->like("email", "gmail.com", "before"); // %gmail.com%
+		// $this->db->like("email", "gmail.com", "none"); //  gmail.com 
+		// $this->db->like("email", "na", "both"); //  %na%
+		$this->db->like("email", "ritah", "after"); //  na%
 		$query = $this->db->get();
 		return $result = $query->result();
 
