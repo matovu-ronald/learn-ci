@@ -46,4 +46,12 @@ class Action_model extends CI_Model
 		// return $result = $query->row(); // Sinlge object
 		return $result = $query->row_array(); // Single Array
 	}
+
+	public function delete_specific_user()
+	{
+		// $this->db->where("id", 4);
+		// return $this->db->delete("users");
+		// Delete from table users where id is 4
+		return $this->db->delete("users", ["id" => 3]);
+	}
 }

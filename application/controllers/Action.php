@@ -38,4 +38,9 @@ class Action extends CI_Controller
 		echo "</pre>";
 	}
 
+	public function delete_single_user()
+	{
+		echo $this->action_model->delete_specific_user();
+	}
+
 }
