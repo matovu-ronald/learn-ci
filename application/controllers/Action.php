@@ -30,4 +30,12 @@ class Action extends CI_Controller
 		}
 	}
 
+	public function get_users()
+	{
+		$data = $this->action_model->get_all_users_data();
+		echo "<pre>";
+			print_r($data);
+		echo "</pre>";
+	}
+
 }

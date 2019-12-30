@@ -33,4 +33,17 @@ class Action_model extends CI_Model
 		$this->db->update("users", $data);
 		return TRUE;
 	}
+
+	public function get_all_users_data()
+	{
+		$this->db->select("*");
+		$this->db->from("users");
+		$this->db->where('id', 1);
+		$query = $this->db->get();
+		// select * from tbl_users
+		// return $result = $query->result(); // Array of objects
+		// return $result = $query->result_array(); // Array of Arrays
+		// return $result = $query->row(); // Sinlge object
+		return $result = $query->row_array(); // Single Array
+	}
 }
