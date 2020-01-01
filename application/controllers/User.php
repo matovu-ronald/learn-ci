@@ -5,11 +5,14 @@ class User extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper("form");
+		$this->load->helper(['form', 'url']);
 	}
 
 	public function form_helper_study()
 	{
+		// echo base_url();
+		// echo "<br>";
+		// echo site_url();
 		$this->load->view("user/form");
 	}
 

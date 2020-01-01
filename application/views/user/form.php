@@ -1,4 +1,4 @@
-<h2>Form Helper</h2>
+<?php echo $this->load->view('includes/include_form', '', TRUE); ?>
 
 <!-- <h4>Form without form helper</h4>
 <form action="" method="post" class="" id="" enctype="multipart/form-data">
@@ -7,18 +7,30 @@
 	<button type="submit">Submit</button>
 </form> -->
 
-<h4>Form with form helper</h4>
-<?php
-echo form_open("http://localhost:8000/index.php/helpers/form-submit", [
-	"method" => "post",
-	"class" =>  "form-class",
-	"id" => "form-id",
-	"enctype" => "multipart/form-data"
-]);
-?>
-	<input type="text" placeholder="Name" name="name">
-	<input type="email" placeholder="Email" name="email">
-	<input type="text" placeholder="Phone" name="phone">
-	<input type="text" placeholder="Salary" name="salary">
-	<button type="submit">Submit</button>
-<?php echo form_close(); ?>
+	<h4>Form with form helper</h4>
+	<?php echo form_open(site_url("helpers/form-submit")); ?>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Name" name="name">
+		</div>
+		<div class="form-group">
+			<input type="email" class="form-control" placeholder="Email" name="email">
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Phone" name="phone">
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Salary" name="salary">
+		</div>
+		
+		<button type="submit" class="btn btn-primary">Submit</button>
+	<?php echo form_close(); ?>
+
+	</div>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="<?= base_url() ?>assets/js/jquery-3.4.1.slim.min.js"></script>
+	<script src="<?= base_url() ?>assets/js/popper.min.js"></script>
+	<script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>
