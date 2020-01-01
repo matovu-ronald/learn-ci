@@ -8,7 +8,7 @@
 </form> -->
 
 	<h4>Form with form helper</h4>
-	<?= validation_errors() ?>
+	<?php // echo validation_errors() ?>
 	<?php echo form_open(site_url("helpers/form-submit")); ?>
 		<div class="form-group">
 			<input type="text" class="form-control" placeholder="Name" name="name">
@@ -16,12 +16,15 @@
 		</div>
 		<div class="form-group">
 			<input type="email" class="form-control" placeholder="Email" name="email">
+			<?= form_error("email", "<div class='text-danger'>", "</div>") ?>
 		</div>
 		<div class="form-group">
 			<input type="text" class="form-control" placeholder="Phone" name="phone">
+			<?= form_error("phone", "<div class='text-danger'>", "</div>") ?>
 		</div>
 		<div class="form-group">
 			<input type="text" class="form-control" placeholder="Salary" name="salary">
+			<?= form_error("salary", "<div class='text-danger'>", "</div>") ?>
 		</div>
 		
 		<button type="submit" class="btn btn-primary">Submit</button>
