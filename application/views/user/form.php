@@ -8,9 +8,11 @@
 </form> -->
 
 	<h4>Form with form helper</h4>
+	<?= validation_errors() ?>
 	<?php echo form_open(site_url("helpers/form-submit")); ?>
 		<div class="form-group">
 			<input type="text" class="form-control" placeholder="Name" name="name">
+			<?= form_error("name", "<div class='text-danger'>", "</div>") ?>
 		</div>
 		<div class="form-group">
 			<input type="email" class="form-control" placeholder="Email" name="email">
