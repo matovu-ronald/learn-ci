@@ -5,8 +5,9 @@ class User extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('user_model');
 		$this->load->helper(['form', 'url']);
-		$this->load->library('form_validation');
+		$this->load->library(['form_validation', 'session']);
 	}
 
 	public function form_helper_study()
@@ -32,7 +33,7 @@ class User extends CI_Controller
 			[
 				"field" => "email",
 				"label" => "Email",
-				"rules" => "required|min_length[10]|callback_is_email_exists"
+				"rules" => "required|min_length[10]|is_unique[users.email]"
 			],
 			[
 				"field" => "phone",
@@ -56,9 +57,23 @@ class User extends CI_Controller
 			$data = $this->input->post();
 			// $data = $this->input->get();
 			// echo $data['name']. ", ". $data["email"]. ", ". $data["phone"]. ", ". $data["salary"];
-			echo "<pre>";
-				print_r($data);
-			echo "</pre>";
+			// echo "<pre>";
+			// 	print_r($data);
+			// echo "</pre>";
+
+			$data_array = [
+				"name" => $data["name"],
+				"email" => $data["email"],
+				"phone" => $data["phone"],
+				"salary" => $data["salary"],
+			];
+			if ($this->user_model->insert_into_users_table($data_array)) {
+				$this->session->set_flashdata("success", "User has been created successfully.");
+				redirect("helpers/form");
+			} else {
+				$this->session->set_flashdata("error", "User creation failed.");
+				redirect("helpers/form");
+			}
 		}
 		
 	}

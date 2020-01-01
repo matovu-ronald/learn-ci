@@ -8,6 +8,11 @@
 </form> -->
 
 	<h4>Form with form helper</h4>
+	<?php if ($this->session->flashdata("success")) {
+		echo '<div class="alert alert-success">';
+			echo $this->session->flashdata("success");
+		echo "</div>";
+	} ?>
 	<?php // echo validation_errors() ?>
 	<?php echo form_open(site_url("helpers/form-submit")); ?>
 		<div class="form-group">
