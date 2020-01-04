@@ -72,6 +72,11 @@ $route['helpers/form-submit'] = 'user/form_submit_method';
 
 $route['users/list'] = 'user/list_all_users';
 
+// Session library routes
 $route['add-session'] = 'mysession/add_session';
 $route['get-sessions'] = 'mysession/get_session';
 $route['destroy-session'] = 'mysession/destroy_session';
+
+// File upload library routes
+$route['my-upload-form'] = 'myupload/my_upload_form';
+$route['submit-file'] = 'myupload/upload_my_files';
