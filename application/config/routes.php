@@ -71,3 +71,7 @@ $route['helpers/form'] = 'user/form_helper_study';
 $route['helpers/form-submit'] = 'user/form_submit_method';
 
 $route['users/list'] = 'user/list_all_users';
+
+$route['add-session'] = 'mysession/add_session';
+$route['get-sessions'] = 'mysession/get_session';
+$route['destroy-session'] = 'mysession/destroy_session';
