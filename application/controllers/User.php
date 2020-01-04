@@ -101,4 +101,11 @@ class User extends CI_Controller
 			return false;
 		}
 	}
+
+	public function list_all_users()
+	{
+		$list_users = $this->user_model->get_all_users();
+		$data['users'] = $list_users;
+		$this->load->view('user/list-user', $data);
+	}
 }

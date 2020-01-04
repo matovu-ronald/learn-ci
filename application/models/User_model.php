@@ -11,4 +11,12 @@ class User_model extends CI_Model
 	{
 		return $this->db->insert("users", $data);
 	}
+
+	public function get_all_users()
+	{
+		$this->db->select('*');
+		$this->db->from('users');
+		$query = $this->db->get();
+		return $result = $query->result_array();
+	}
 }

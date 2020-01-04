@@ -6,8 +6,10 @@
 	<input type="email" name="" id="" placeholder="Email">
 	<button type="submit">Submit</button>
 </form> -->
-
-	<h4>Form with form helper</h4>
+	<div class="d-flex justify-content-between my-5">
+		<h4>User Form</h4>
+		<a href="<?= site_url('users/list') ?>" class="btn btn-primary">Users List</a>
+	</div>
 	<?php if ($this->session->flashdata("success")) {
 		echo '<div class="alert alert-success">';
 			echo $this->session->flashdata("success");
@@ -16,19 +18,19 @@
 	<?php // echo validation_errors() ?>
 	<?php echo form_open(site_url("helpers/form-submit")); ?>
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Name" name="name">
+			<input type="text" value="<?= set_value('name') ?>" class="form-control" placeholder="Name" name="name">
 			<?= form_error("name", "<div class='text-danger'>", "</div>") ?>
 		</div>
 		<div class="form-group">
-			<input type="email" class="form-control" placeholder="Email" name="email">
+			<input type="email" value="<?= set_value('email') ?>" class="form-control" placeholder="Email" name="email">
 			<?= form_error("email", "<div class='text-danger'>", "</div>") ?>
 		</div>
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Phone" name="phone">
+			<input type="text" value="<?= set_value('phone') ?>" class="form-control" placeholder="Phone" name="phone">
 			<?= form_error("phone", "<div class='text-danger'>", "</div>") ?>
 		</div>
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Salary" name="salary">
+			<input type="text" value="<?= set_value('salary') ?>" class="form-control" placeholder="Salary" name="salary">
 			<?= form_error("salary", "<div class='text-danger'>", "</div>") ?>
 		</div>
 		

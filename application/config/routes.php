@@ -69,3 +69,5 @@ $route['action/messages'] = 'action/get_messages';
 
 $route['helpers/form'] = 'user/form_helper_study';
 $route['helpers/form-submit'] = 'user/form_submit_method';
+
+$route['users/list'] = 'user/list_all_users';

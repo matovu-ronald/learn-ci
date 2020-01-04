@@ -12,6 +12,5 @@
   </head>
   <body>
 	  <div class="container">
-	  	<h1>Form Helper</h1>
 	  
     
