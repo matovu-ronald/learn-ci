@@ -80,3 +80,5 @@ $route['destroy-session'] = 'mysession/destroy_session';
 // File upload library routes
 $route['my-upload-form'] = 'myupload/my_upload_form';
 $route['submit-file'] = 'myupload/upload_my_files';
+
+echo date("Ymdhiss");
